@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <h2>Add model</h2>
+    <div class="alert alert-success" role="alert" *ngIf="success_show">
+        {{successMessage}}
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="error_show">
+          {{errorMessage}}
+      </div>
+    <form novalidate [formGroup]='add_model' (ngSubmit) = "onSubmit()">
+    <div class="row">
+      <div class="col-sm-3">
+          <div class="form-group">
+              <label for="sel1">Select Manufacturer</label>
+              <select class="form-control" formControlName="manufacturer_id" id="sel1">
+                <option value="">Select Manufacturer</option>
+                <option *ngFor="let value of manufacturer_list; let i = index" value="{{value.id}}">{{value.manufacturer_name}}</option>
+               
+              </select>
+            </div> 
+      </div>
+      <div class="col-sm-9">
+          <div class="form-group">
+              <label for="">Color</label>
+              <input type="text" name="color" class="form-control" formControlName="color" aria-describedby="emailHelp" placeholder="Enter color">
+          </div>
+          <div class="form-group">
+              <label for="">Manufacturing Year</label>
+              <input type="number" name="color" class="form-control" formControlName="manufacturing_year" aria-describedby="emailHelp" placeholder="Enter Manufacturing Year">
+          </div>
+          <div class="form-group">
+              <label for="">Registration Number</label>
+              <input type="text" name="registration_number" class="form-control" formControlName="registration_number" aria-describedby="emailHelp" placeholder="Enter Registration Number">
+          </div>
+          <div class="form-group">
+              <label for="">Note</label>
+              <input type="text" name="note" class="form-control" formControlName="note" aria-describedby="emailHelp" placeholder="Enter Note">
+          </div>
+          <div class="form-group">
+              <label for="">Upload Imeges</label>
+              <input type="file" class="form-control" (change)="onfileselected($event)" multiple>
+          </div>
+          <!-- <div class="form-group">
+            <label for="">Upload Imeges 2</label>
+            <input type="file" class="form-control" (change)="onfileselected($event)" >
+        </div> -->
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary">Add</button>
+          </div>
+      </div>
+    </div>
+    </form>
+    </div>
+  

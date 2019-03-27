@@ -1,0 +1,33 @@
+<a routerLink="/add/model" style='float:right'><button type="button" class="btn btn-primary">Add Model</button></a>
+<div class="container-floud" >
+    <table class="table">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Manufacturer Name</th>
+            <th>Color</th>
+            <th>Manufacturer year</th>
+            <th>Registration Number</th>
+            <th>Note</th>
+            <th>Images</th>
+            <th>Created Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let value of model_list; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{value.manufacturer_name}}</td>
+            <td>{{value.color}}</td>
+            <td>{{value.manufacturing_year}}</td>
+            <td>{{value.registration_number}}</td>
+            <td>{{value.note}}</td>
+            <td>
+              <span *ngFor="let image of value.images; let i = index"><a href="public/files/{{image}}"><img src="public/files/{{image}}"  width="42" height="42">
+                </a></span>
+            </td>
+            <td>{{value.created_at | date:'medium'}}</td>
+          </tr>
+         
+        </tbody>
+      </table>
+      </div>

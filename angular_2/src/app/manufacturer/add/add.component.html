@@ -1,0 +1,39 @@
+<div class="container-fluid" >
+    <a routerLink="/add/model" style='float:right'><button type="button" class="btn btn-primary">Add Model</button></a>
+    <div class="alert alert-success" role="alert" *ngIf="success_show">
+        {{successMessage}}
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="error_show">
+          {{errorMessage}}
+      </div>
+  <form novalidate [formGroup]='add_manufacturur' (ngSubmit) = "onSubmit()">
+    <div class="col-md-6">
+    <div class="form-group">
+      <label for="">Manufacturer Name</label>
+      <input type="text" name="manufacturer_name" class="form-control" formControlName="manufacturer_name" aria-describedby="emailHelp" placeholder="Enter Manufacturer Name">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  </form> 
+</div>
+
+<div class="container" >
+<table class="table">
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Manufacturer Name</th>
+        <th>Created Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let value of manufacturer_list; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{value.manufacturer_name}}</td>
+        <td>{{value.created_at}}</td>
+      </tr>
+     
+    </tbody>
+  </table>
+  </div>
